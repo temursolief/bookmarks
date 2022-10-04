@@ -1,7 +1,7 @@
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
-from .views import dashboard, register, user_login
+from .views import dashboard, register, edit, user_login
 
 urlpatterns = [
     # # path('login/', user_login, name='login'),
@@ -34,4 +34,5 @@ urlpatterns = [
     #dashboard
     path('', dashboard, name='dashboard'),
     path('register/', register, name='register'),
+    path('edit/', edit, name='edit'),
 ]
