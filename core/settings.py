@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     #3rd party
     'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_django.backends.facebook.FacebookOAuth2',
 ]
 
 
