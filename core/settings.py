@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
     #local
     'images.apps.ImagesConfig',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
