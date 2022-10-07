@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from actions.utils import create_action
+from actions.models import Action
 from .forms import (LoginForm, UserRegistrationForm, 
             UserEditForm, ProfileEditForm)
 from .models import Profile, Contact
@@ -57,9 +58,15 @@ def edit(request):
 
 @login_required
 def dashboard(request):
+    actions = Action.objects.exclude(user=request.user)
+    following_ids = request.user.following.values_list('id', flat=True)
+    if following_ids:
+        actions = actions.filter(user_id__in=following_ids)
+    actions = actions[:10]
     return render(request, 
         'account/dashboard.html',
-        {'section': 'dashboard'})
+        {'section': 'dashboard',
+        "actions": actions})
 
 def user_login(request):
     """
