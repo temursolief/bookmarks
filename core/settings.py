@@ -179,7 +179,7 @@ THUMBNAIL_DEBUG = True
 
 
 ABSOLUTE_URL_OVERRIDES = {
-    'auth.User': lambda u: reverse_lazy('user_detail', args=[u.username])
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
 }
 
 
