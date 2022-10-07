@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 
     #local
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
     'easy_thumbnails',
 ]
 
