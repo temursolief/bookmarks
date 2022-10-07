@@ -14,6 +14,7 @@ from telnetlib import LOGOUT
 import dotenv
 
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -175,6 +176,11 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 THUMBNAIL_DEBUG = True
+
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.User': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
 
 
 if DEBUG:
